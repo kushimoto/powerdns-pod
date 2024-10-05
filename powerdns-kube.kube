@@ -1,0 +1,12 @@
+[Unit]
+Description=PowerDNS Pod
+
+[Kube]
+Yaml=/opt/powerdns-pod/powerdns-pod.yaml
+Network=slirp4netns
+
+[Service]
+Environment="PULL_POLICY=never"
+
+[Install]
+WantedBy=network-online.target
