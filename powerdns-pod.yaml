@@ -23,7 +23,9 @@ spec:
     - containerPort: 8053
       hostPort: 8053
     - containerPort: 80
-      hostPort: 8080
+      hostPort: 80
+    - containerPort: 9091
+      hostPort: 9091
     - containerPort: 1053
       hostPort: 53
       protocol: UDP
@@ -32,8 +34,8 @@ spec:
       protocol: UDP
     securityContext: {}
     volumeMounts:
-    - mountPath: /var/lib/powerdns/pdns.sqlite
-      name: opt-powerdns-pod-data-powerdns-auth-pdns.sqlite-host-0
+    - mountPath: /var/lib/powerdns
+      name: opt-powerdns-pod-data-powerdns-auth-host-0
     - mountPath: /etc/powerdns/pdns.d/pdns.conf
       name: opt-powerdns-pod-pdns.d-pdns.conf-host-1
       readOnly: true
@@ -68,9 +70,9 @@ spec:
       type: File
     name: opt-powerdns-pod-data-powerdns-admin-admin.sqlite-host-0
   - hostPath:
-      path: /opt/powerdns-pod/data/powerdns-auth/pdns.sqlite
+      path: /opt/powerdns-pod/data/powerdns-auth/
       type: File
-    name: opt-powerdns-pod-data-powerdns-auth-pdns.sqlite-host-0
+    name: opt-powerdns-pod-data-powerdns-auth-host-0
   - hostPath:
       path: /opt/powerdns-pod/pdns.d/pdns.conf
       type: File
